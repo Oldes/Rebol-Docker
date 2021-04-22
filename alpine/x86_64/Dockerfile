@@ -1,9 +1,10 @@
-FROM alpine:3.13
+FROM alpine:latest
 WORKDIR /rebol
 ENV REBOL_HOME=/rebol
-ENV REBOL_VERSION 3.5.0
+ENV REBOL_VERSION 3.5.3
 
-RUN wget -q https://github.com/Oldes/Rebol3/releases/download/$REBOL_VERSION/Rebol_${REBOL_VERSION}_x64-musl.gz && gunzip ./Rebol* && mv ./Rebol* /bin/rebol && chmod +x /bin/rebol
+RUN wget -q https://github.com/Siskin-framework/Rebol/releases/download/$REBOL_VERSION/rebol3-bulk-x64-musl.gz
+RUN gunzip ./rebol* && mv ./rebol* /bin/rebol && chmod +x /bin/rebol
 
 LABEL version="3.5"
 LABEL description="REBOL (relative expression based object language) console."
