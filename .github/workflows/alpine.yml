@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build & Push Alpine x86_64 image
+      - name: Build Alpine x86_64 image
         run: |
           cd ./alpine/x86_64/
           docker build -t oldes/rebol:$TAG .
@@ -38,5 +38,5 @@ jobs:
           docker run oldes/rebol:$TAG rebol -v
           docker run oldes/rebol:$TAG rebol --usage
 
-#      - name: Push image
-#        run: docker push oldes/rebol:$TAG
+      - name: Push image
+        run: docker push oldes/rebol:$TAG
