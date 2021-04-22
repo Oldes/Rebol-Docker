@@ -14,9 +14,6 @@ jobs:
         os_version: [alpine clearlinux debian ubuntu] #TODO: tinycore
 
     runs-on: ubuntu-latest
-    env:
-      TAG: ${{ matrix.os_version }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -29,14 +26,14 @@ jobs:
 
       - name: Build image
         run: |
-          cd ./alpine/x86_64/
-          docker build -t oldes/rebol:$TAG .
-          docker tag  oldes/rebol:$TAG oldes/rebol:$TAG
+          cd ./${{ matrix.os_version }}/x86_64/
+          docker build -t oldes/rebol:${{ matrix.os_version }} .
+          docker tag  oldes/rebol:${{ matrix.os_version }} oldes/rebol:${{ matrix.os_version }}
 
       - name: Test image
         run: |
-          docker run oldes/rebol:$TAG rebol -v
-          docker run oldes/rebol:$TAG rebol --usage
+          docker run oldes/rebol:${{ matrix.os_version }} rebol -v
+          docker run oldes/rebol:${{ matrix.os_version }} rebol --usage
 
 #      - name: Push image
-#        run: docker push oldes/rebol:$TAG
+#        run: docker push oldes/rebol:${{ matrix.os_version }}
