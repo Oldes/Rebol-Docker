@@ -14,7 +14,7 @@ on:
         default: 'true'
       rebol_version:
         description: 'Rebol Version (add - at tail if used!)'
-        required: true
+        required: false
         default: ''
 
 jobs:
