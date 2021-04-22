@@ -42,13 +42,15 @@ jobs:
       - name: Build image
         run: |
           cd ./${{ matrix.os_version }}/x86_64/
-          docker build -t oldes/rebol:${{ matrix.os_version }} .
-          docker tag  oldes/rebol:${{ matrix.os_version }} oldes/rebol:${{ matrix.os_version }}
+          export TAG=${{ github.event.inputs.rebol_version}}${{ matrix.os_version }}
+          docker build -t oldes/rebol:$TAG .
+          docker tag  oldes/rebol:$TAG oldes/rebol:$TAG
 
       - name: Test image
         run: |
-          docker run oldes/rebol:${{ matrix.os_version }} rebol -v
-          docker run oldes/rebol:${{ matrix.os_version }} rebol --usage
+          export TAG=${{ github.event.inputs.rebol_version}}${{ matrix.os_version }}
+          docker run oldes/rebol:$TAG rebol -v
+          docker run oldes/rebol:$TAG rebol --usage
 
       - name: Push image
         if: ${{ github.event.inputs.push == 'true' }}
