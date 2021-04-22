@@ -8,12 +8,16 @@ on:
 
 jobs:
   linux:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        os_version: [alpine clearlinux debian ubuntu] #TODO: tinycore
-
-    runs-on: ubuntu-latest
+        os_version:
+          - alpine
+          - clearlinux
+          - debian
+          - ubuntu
+          #TODO: - tinycore
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
