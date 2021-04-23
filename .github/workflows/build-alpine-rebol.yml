@@ -27,11 +27,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: Download Rebol-dev container
+        run: docker pull oldes/rebol-dev:alpine
+
       - name: Build all Rebol versions
         run: |
           cd ./alpine/x86_64/
           chmod +x ./build-all.sh
-          docker run -v $PWD:/out/ --rm oldes/rebol-dev /out/build-all.sh
+          docker run -v $PWD:/out/ oldes/rebol-dev:alpine /out/build-all.sh
 
       - name: Create archives from each version
         run: |
