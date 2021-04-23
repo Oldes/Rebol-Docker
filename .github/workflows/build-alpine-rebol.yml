@@ -45,5 +45,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Red-Linux
+          name: Red-Alpine-Linux
           path: ./alpine/x86_64/*.gz
