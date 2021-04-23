@@ -27,16 +27,11 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build Alpine x86_64 image
-        run: |
-          cd ./alpine/x86_64/
-          docker build -f Dockerfile-dev -t oldes/rebol-dev:$TAG .
-
       - name: Build all Rebol versions
         run: |
           cd ./alpine/x86_64/
           chmod +x ./build-all.sh
-          docker run -v $PWD:/out/ -it --rm oldes/rebol-dev /out/build-all.sh
+          docker run -v $PWD:/out/ --rm oldes/rebol-dev /out/build-all.sh
 
       - name: Create archives from each version
         run: |
