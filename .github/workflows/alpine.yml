@@ -66,8 +66,8 @@ jobs:
 
       - name: Push image to Oldes repository
         run: |
-          docker push oldes/rebol:$TAG
-          docker push oldes/rebol:alpine
+          docker push docker.io/oldes/rebol:$TAG
+          docker push docker.io/oldes/rebol:alpine
 
       - name: Push image to Rebol repository
         run: docker push docker.io/rebol/alpine

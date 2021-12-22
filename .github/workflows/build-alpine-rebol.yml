@@ -39,9 +39,9 @@ jobs:
       - name: Create archives from each version
         run: |
           cd ./alpine/x86_64/
-          gzip -9 ./rebol3-base-x64-musl
-          gzip -9 ./rebol3-core-x64-musl
-          gzip -9 ./rebol3-bulk-x64-musl
+          gzip -9 ./rebol3-base-linux-x64-musl
+          gzip -9 ./rebol3-core-linux-x64-musl
+          gzip -9 ./rebol3-bulk-linux-x64-musl
 
       - uses: actions/upload-artifact@v2
         with:
