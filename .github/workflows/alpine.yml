@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     env:
-      TAG: 3.5.3-alpine-x86_64
+      TAG: 3.7.1-alpine-x86_64
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
