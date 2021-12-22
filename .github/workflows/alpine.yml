@@ -31,12 +31,16 @@ jobs:
         run: |
           cd ./alpine/x86_64/
           docker build -t oldes/rebol:$TAG .
-          docker tag  oldes/rebol:$TAG oldes/rebol:$TAG
+          docker tag  oldes/rebol:$TAG oldes/rebol:alpine
 
-      - name: Test image
-        run: |
-          docker run oldes/rebol:$TAG rebol -v
+      - name: Test image - Rebol version
+        run: docker run oldes/rebol:$TAG rebol --version
+
+      - name: Test image - Rebol usage
           docker run oldes/rebol:$TAG rebol --usage
 
-      - name: Push image
+      - name: Push image to Oldes
         run: docker push oldes/rebol:$TAG
+
+      - name: Push image to Rebol arg
+        run: docker push rebol/alpine:latest
