@@ -34,7 +34,7 @@ jobs:
           docker tag  oldes/rebol:$TAG oldes/rebol:alpine
 
       - name: Test image - Rebol version
-        run: docker run oldes/rebol:$TAG rebol --version
+        run: docker run oldes/rebol:$TAG rebol -v
 
       - name: Test image - Rebol usage
         run: docker run oldes/rebol:$TAG rebol --usage
@@ -43,4 +43,34 @@ jobs:
         run: docker push oldes/rebol:$TAG
 
       - name: Push image to Rebol arg
-        run: docker push rebol/alpine:latest
+        run: docker push docker.io/rebol/alpine
+
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      TAG: 3.7.1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PACK_TOKEN }}
+
+      - name: Build Alpine x86_64 image
+        run: |
+          cd ./alpine/x86_64/
+          docker build . --tag ghcr.io/oldes/rebol:latest
+          docker tag ghcr.io/oldes/rebol:latest ghcr.io/oldes/rebol:$TAG
+
+      - name: Test image - Rebol version
+        run: docker run ghcr.io/oldes/rebol:latest rebol -v
+
+      - name: Test image - Rebol usage
+        run: docker run ghcr.io/oldes/rebol:latest rebol --usage
+
+      - name: Push image to Github Container Registry
+        run: docker push ghcr.io/oldes/rebol:latest
