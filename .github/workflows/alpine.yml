@@ -37,7 +37,7 @@ jobs:
         run: docker run oldes/rebol:$TAG rebol --version
 
       - name: Test image - Rebol usage
-          docker run oldes/rebol:$TAG rebol --usage
+        run: docker run oldes/rebol:$TAG rebol --usage
 
       - name: Push image to Oldes
         run: docker push oldes/rebol:$TAG
