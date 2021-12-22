@@ -64,9 +64,11 @@ jobs:
       - name: Test image - Rebol usage
         run: docker run oldes/rebol:$TAG rebol --usage
 
-      - name: Push image to Oldes
-        run: docker push oldes/rebol:$TAG
+      - name: Push image to Oldes repository
+        run: |
+          docker push oldes/rebol:$TAG
+          docker push oldes/rebol:alpine
 
-      - name: Push image to Rebol arg
+      - name: Push image to Rebol repository
         run: docker push docker.io/rebol/alpine
 
