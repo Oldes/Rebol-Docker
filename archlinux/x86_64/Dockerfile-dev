@@ -1,0 +1,7 @@
+FROM oldes/rebol:archlinux
+
+ENV REBOL3=/bin/rebol
+RUN pacman -Syq --noconfirm git gcc
+RUN git clone https://github.com/Siskin-framework/Builder.git --depth 1
+
+CMD "/bin/sh"

@@ -1,0 +1,86 @@
+name: 'ArchLinux'
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # testing Linux builds...
+  linux:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      VER: 3.7.2
+      OS:  archlinux
+      ARCH: x86_64
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PACK_TOKEN }}
+
+      - name: Build ArchLinux x86_64 image
+        run: |
+          cd ./$OS/$ARCH/
+          docker build . --tag ghcr.io/oldes/rebol-$OS:$VER
+          docker tag ghcr.io/oldes/rebol-$OS:$VER ghcr.io/oldes/rebol-$OS:latest
+          docker tag ghcr.io/oldes/rebol-$OS:$VER ghcr.io/oldes/rebol:$OS
+
+      - name: Test image - Rebol version
+        run: docker run ghcr.io/oldes/rebol-$OS:$VER rebol -v
+
+      - name: Test image - Rebol usage
+        run: docker run ghcr.io/oldes/rebol-$OS:$VER rebol --usage
+
+      - name: Push image to Github Container Registry
+        run: |
+          docker push ghcr.io/oldes/rebol-$OS:$VER
+          docker push ghcr.io/oldes/rebol-$OS:latest
+          docker push ghcr.io/oldes/rebol:$OS
+
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build ArchLinux x86_64 image
+        run: |
+          cd ./$OS/$ARCH/
+          docker build . -tag oldes/rebol-$OS:$VER
+          docker tag  oldes/rebol-$OS:$VER oldes/rebol:$OS
+          docker tag  oldes/rebol-$OS:$VER oldes/rebol:latest
+          docker tag  oldes/rebol-$OS:$VER rebol/$OS
+          docker tag  oldes/rebol-$OS:$VER rebol/$OS:$VER
+          docker tag  oldes/rebol-$OS:$VER rebol/$OS:latest
+
+      - name: Test image - Rebol version
+        run: docker run oldes/rebol-$OS:$VER rebol -v
+
+      - name: Test image - Rebol usage
+        run: docker run oldes/rebol-$OS:$VER rebol --usage
+
+      - name: Push image to Oldes repository
+        run: |
+          docker push docker.io/oldes/rebol-$OS:$VER
+          docker push docker.io/oldes/rebol-$OS:latest
+          docker push docker.io/oldes/rebol:$OS
+
+      - name: Push image to Rebol repository
+        run: |
+          docker push docker.io/rebol/$OS
+          docker push docker.io/rebol/$OS:$VER
+          docker push docker.io/rebol/$OS:latest
+
