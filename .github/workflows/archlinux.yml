@@ -59,7 +59,7 @@ jobs:
       - name: Build ArchLinux x86_64 image
         run: |
           cd ./$OS/$ARCH/
-          docker build . -tag oldes/rebol-$OS:$VER
+          docker build . --tag oldes/rebol-$OS:$VER
           docker tag  oldes/rebol-$OS:$VER oldes/rebol:$OS
           docker tag  oldes/rebol-$OS:$VER oldes/rebol:latest
           docker tag  oldes/rebol-$OS:$VER rebol/$OS
