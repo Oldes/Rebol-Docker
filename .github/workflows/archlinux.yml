@@ -61,7 +61,7 @@ jobs:
           cd ./$OS/$ARCH/
           docker build . --tag oldes/rebol-$OS:$VER
           docker tag  oldes/rebol-$OS:$VER oldes/rebol:$OS
-          docker tag  oldes/rebol-$OS:$VER oldes/rebol:latest
+          docker tag  oldes/rebol-$OS:$VER oldes/rebol-$OS:latest
           docker tag  oldes/rebol-$OS:$VER rebol/$OS
           docker tag  oldes/rebol-$OS:$VER rebol/$OS:$VER
           docker tag  oldes/rebol-$OS:$VER rebol/$OS:latest
@@ -74,9 +74,9 @@ jobs:
 
       - name: Push image to Oldes repository
         run: |
+          docker push docker.io/oldes/rebol:$OS
           docker push docker.io/oldes/rebol-$OS:$VER
           docker push docker.io/oldes/rebol-$OS:latest
-          docker push docker.io/oldes/rebol:$OS
 
       - name: Push image to Rebol repository
         run: |
