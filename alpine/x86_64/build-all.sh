@@ -3,6 +3,7 @@
 # this script is supposed to be run from rebol-dev container
 
 cd /rebol/Builder/
+git pull
 /bin/rebol siskin.r3 rebol --list
 /bin/rebol siskin.r3 rebol rebol3-base-windows-x64
 /bin/rebol siskin.r3 rebol rebol3-core-windows-x64
