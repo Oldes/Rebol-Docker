@@ -27,23 +27,41 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Download Rebol-dev container
-        run: docker pull oldes/rebol-dev:alpine
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.1
+        
 
-      - name: Build all Rebol versions
-        run: |
-          cd ./alpine/x86_64/
-          chmod +x ./build-all.sh
-          docker run -v $PWD:/out/ oldes/rebol-dev:alpine /out/build-all.sh
+      - name: Download Alpine-amd64 Rebol-dev container
+        run: docker pull oldes/rebol-dev:alpine-amd64 
 
-      - name: Create archives from each version
-        run: |
-          cd ./alpine/x86_64/
-          gzip -9 ./rebol3-base-linux-x64-musl
-          gzip -9 ./rebol3-core-linux-x64-musl
-          gzip -9 ./rebol3-bulk-linux-x64-musl
+      - name: Build all Rebol versions for alpine-amd64
+        run: siskin Rebol-Docker.nest rebol-alpine-x64
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Red-Alpine-Linux
-          path: ./alpine/x86_64/*.gz
+          name: Rebol-Alpine-Linux
+          path: ./alpine/amd64/*.gz
+
+
+      - name: Download Alpine-arm32v7 Rebol-dev container
+        run: docker pull oldes/rebol-dev:alpine-arm32v7 
+
+      - name: Build all Rebol versions for alpine-arm32v7
+        run: siskin Rebol-Docker.nest rebol-alpine-arm32v7
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Rebol-Alpine-Linux
+          path: ./alpine/arm32v7/*.gz
+
+
+      - name: Download Alpine-arm64v8 Rebol-dev container
+        run: docker pull oldes/rebol-dev:alpine-arm64v8 
+
+      - name: Build all Rebol versions for alpine-arm64v8
+        run: siskin Rebol-Docker.nest rebol-alpine-arm64v8
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Rebol-Alpine-Linux
+          path: ./alpine/arm64v8/*.gz

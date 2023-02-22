@@ -2,122 +2,122 @@
 eggs: [
 	"Docker image: Rebol     - Alpine     (ARM32v7)" [
 		name: %alpine-rebol-bulk-arm32v7
-		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t oldes/rebol:alpine-arm32v7 -f Dockerfile .}
-		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm oldes/rebol:alpine-arm32v7 rebol -v}
+		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t docker.io/oldes/rebol:alpine-arm32v7 -f Dockerfile .}
+		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm docker.io/oldes/rebol:alpine-arm32v7 rebol -v}
 	]
 	"Docker image: Rebol     - Alpine     (ARM64v8)" [
 		name: %alpine-rebol-bulk-arm64v8
-		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t oldes/rebol:alpine-arm64v8 -f Dockerfile .}
-		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm oldes/rebol:alpine-arm64v8 rebol -v}
+		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t docker.io/oldes/rebol:alpine-arm64v8 -f Dockerfile .}
+		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm docker.io/oldes/rebol:alpine-arm64v8 rebol -v}
 	]
 	"Docker image: Rebol     - Alpine     (x64)" [
 		name: %alpine-rebol-bulk-x64
-		 cmd  %alpine/amd64/ {docker build --platform linux/amd64   -t oldes/rebol:alpine-x64 -t oldes/rebol:alpine-amd64 -f Dockerfile .}
-		 cmd  %alpine/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:alpine-x64 rebol -v}
+		 cmd  %alpine/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol:alpine-x64 -t docker.io/oldes/rebol:alpine-amd64 -f Dockerfile .}
+		 cmd  %alpine/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:alpine-x64 rebol -v}
 	]
 	"Docker image: Rebol     - Archlinux  (x64)" [
 		name: %archlinux-rebol-bulk
-		 cmd  %archlinux/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:archlinux-x64 -t oldes/rebol:archlinux-amd64 -f Dockerfile .}
-		 cmd  %archlinux/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:archlinux-amd64 rebol -v}
+		 cmd  %archlinux/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:archlinux-x64 -t docker.io/oldes/rebol:archlinux-amd64 -f Dockerfile .}
+		 cmd  %archlinux/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:archlinux-amd64 rebol -v}
 	]
 	"Docker image: Rebol     - Clearlinux (x64)" [
 		name: %clearlinux-rebol-bulk-x64
-		 cmd  %clearlinux/amd64/ {docker build --platform linux/amd64   -t oldes/rebol:clearlinux -t oldes/rebol:clearlinux-x64 -f Dockerfile .}
-		 cmd  %clearlinux/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:clearlinux rebol -v}
+		 cmd  %clearlinux/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol:clearlinux -t docker.io/oldes/rebol:clearlinux-x64 -f Dockerfile .}
+		 cmd  %clearlinux/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:clearlinux rebol -v}
 	]
 	"Docker image: Rebol     - Debian-10  (i386)" [
 		name: %debian10-rebol-bulk-i386
-		 cmd  %debian/i386/ {docker build --platform linux/i386   -t oldes/rebol:debian10-i386 -f Dockerfile-10-slim .}
-		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm oldes/rebol:debian10-i386 rebol -v}
+		 cmd  %debian/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol:debian10-i386 -f Dockerfile-10-slim .}
+		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol:debian10-i386 rebol -v}
 	]
 	"Docker image: Rebol     - Debian-10  (x64)" [
 		name: %debian10-rebol-bulk-x64
-		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t oldes/rebol:debian10-x64 -t oldes/rebol:debian10-amd64 -f Dockerfile-10-slim .}
-		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:debian10-x64 rebol -v}
+		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol:debian10-x64 -t docker.io/oldes/rebol:debian10-amd64 -f Dockerfile-10-slim .}
+		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:debian10-x64 rebol -v}
 	]
 	"Docker image: Rebol     - Debian-11  (i386)" [
 		name: %debian11-rebol-bulk-i386
-		 cmd  %debian/i386/ {docker build --platform linux/i386   -t oldes/rebol:debian11-i386 -f Dockerfile-11-slim .}
-		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm oldes/rebol:debian11-i386 rebol -v}
+		 cmd  %debian/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol:debian11-i386 -f Dockerfile-11-slim .}
+		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol:debian11-i386 rebol -v}
 	]
 	"Docker image: Rebol     - Debian-11  (x64)" [
 		name: %debian11-rebol-bulk-x64
-		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t oldes/rebol:debian11-x64 -t oldes/rebol:debian11-amd64 -f Dockerfile-11-slim .}
-		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:debian11-x64 rebol -v}
+		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol:debian11-x64 -t docker.io/oldes/rebol:debian11-amd64 -f Dockerfile-11-slim .}
+		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:debian11-x64 rebol -v}
 	]
 	"Docker image: Rebol     - Debian     (mips64le)" [
 		name: %debian-rebol-bulk-mips64le
-		 cmd  %debian/mips64le/ {docker build --platform linux/mips64le   -t oldes/rebol:debian-mips64le -f Dockerfile-slim .}
-		 cmd  %debian/mips64le/ {docker run   --platform linux/mips64le --rm oldes/rebol:debian-mips64le rebol -v}
+		 cmd  %debian/mips64le/ {docker build --platform linux/mips64le   -t docker.io/oldes/rebol:debian-mips64le -f Dockerfile-slim .}
+		 cmd  %debian/mips64le/ {docker run   --platform linux/mips64le --rm docker.io/oldes/rebol:debian-mips64le rebol -v}
 	]
 
 	"Docker image: Rebol     - Ubuntu     (i386)" [
 		name: %ubuntu-rebol-bulk-x86
-		 cmd  %ubuntu/i386/ {docker build --platform linux/i386   -t oldes/rebol:ubuntu-x86 -t oldes/rebol:ubuntu-i386 -f Dockerfile .}
-		 cmd  %ubuntu/i386/ {docker run   --platform linux/i386 --rm oldes/rebol:ubuntu-x86 rebol -v}
+		 cmd  %ubuntu/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol:ubuntu-x86 -t docker.io/oldes/rebol:ubuntu-i386 -f Dockerfile .}
+		 cmd  %ubuntu/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol:ubuntu-x86 rebol -v}
 	]
 	"Docker image: Rebol     - Ubuntu-23  (x64)" [
 		name: %ubuntu23-rebol-bulk-x64
-		 cmd  %ubuntu/amd64/ {docker build --platform linux/amd64   -t oldes/rebol:ubuntu23-x64 -t oldes/rebol:ubuntu23-amd64 -f Dockerfile-23 .}
-		 cmd  %ubuntu/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol:ubuntu23-x64 rebol -v}
+		 cmd  %ubuntu/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol:ubuntu23-x64 -t docker.io/oldes/rebol:ubuntu23-amd64 -f Dockerfile-23 .}
+		 cmd  %ubuntu/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol:ubuntu23-x64 rebol -v}
 	]
 
 	;--------------------------------------------------------------------------------------------------------------------
 
 	"Docker Image: Rebol-dev - Alpine     (ARM32v7)" [
 		name: %alpine-rebol-dev-arm32v7
-		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t oldes/rebol-dev:alpine-arm32 -t oldes/rebol-dev:alpine-armv7 -f Dockerfile-dev .}
-		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm oldes/rebol-dev:alpine-arm32 rebol -v}
+		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t docker.io/oldes/rebol-dev:alpine-arm32 -t docker.io/oldes/rebol-dev:alpine-armv7 -f Dockerfile-dev .}
+		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm docker.io/oldes/rebol-dev:alpine-arm32 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Alpine     (ARM64v8)" [
 		name: %alpine-rebol-dev-arm64v8
-		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t oldes/rebol-dev:alpine-arm64 -t oldes/rebol-dev:alpine-armv8 -f Dockerfile-dev .}
-		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm oldes/rebol-dev:alpine-arm64 rebol -v}
+		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t docker.io/oldes/rebol-dev:alpine-arm64 -t docker.io/oldes/rebol-dev:alpine-armv8 -f Dockerfile-dev .}
+		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm docker.io/oldes/rebol-dev:alpine-arm64 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Alpine     (x64)" [
 		name: %alpine-rebol-dev-x64
-		 cmd  %alpine/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:alpine-amd64 -t oldes/rebol-dev:alpine-x64 -f Dockerfile-dev .}
-		 cmd  %alpine/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol-dev:alpine-amd64 rebol -v}
+		 cmd  %alpine/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:alpine-amd64 -t docker.io/oldes/rebol-dev:alpine-x64 -f Dockerfile-dev .}
+		 cmd  %alpine/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:alpine-amd64 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Archlinux  (x64)" [ ;- glibc_2.37
 		name: %archlinux-rebol-dev-x64
-		 cmd  %archlinux/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:archlinux-x64 -t oldes/rebol-dev:archlinux-amd64 -f Dockerfile-dev .}
-		 cmd  %archlinux/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol-dev:archlinux-x64 rebol -v}
+		 cmd  %archlinux/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:archlinux-x64 -t docker.io/oldes/rebol-dev:archlinux-amd64 -f Dockerfile-dev .}
+		 cmd  %archlinux/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:archlinux-x64 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Debian-10  (x64)" [ ;- glibc_2.28
 		name: %debian10-rebol-dev-x64
-		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:debian10-x64 -t oldes/rebol-dev:debian10-amd64 -f Dockerfile-10-dev .}
-		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol-dev:debian10-x64 rebol -v}
+		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:debian10-x64 -t docker.io/oldes/rebol-dev:debian10-amd64 -f Dockerfile-10-dev .}
+		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:debian10-x64 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Debian-10  (i386)" [ ;- glibc_2.28
 		name: %debian10-rebol-dev-i386
-		 cmd  %debian/i386/ {docker build --platform linux/i386   -t oldes/rebol-dev:debian10-i386 -f Dockerfile-10-dev .}
-		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm oldes/rebol-dev:debian10-i386 rebol -v}
+		 cmd  %debian/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:debian10-i386 -f Dockerfile-10-dev .}
+		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:debian10-i386 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Debian-11  (x64)" [ ;- glibc_2.31
 		name: %debian11-rebol-dev-x64
-		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:debian11-x64 -t oldes/rebol-dev:debian11-amd64 -f Dockerfile-11-dev .}
-		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol-dev:debian11-x64 rebol -v}
+		 cmd  %debian/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:debian11-x64 -t docker.io/oldes/rebol-dev:debian11-amd64 -f Dockerfile-11-dev .}
+		 cmd  %debian/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:debian11-x64 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Debian-11  (i386)" [ ;- glibc_2.31
 		name: %debian11-rebol-dev-i386
-		 cmd  %debian/i386/ {docker build --platform linux/i386   -t oldes/rebol-dev:debian11-i386 -f Dockerfile-11-dev .}
-		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm oldes/rebol-dev:debian11-i386 rebol -v}
+		 cmd  %debian/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:debian11-i386 -f Dockerfile-11-dev .}
+		 cmd  %debian/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:debian11-i386 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Debian     (mips64le)" [ ;- glibc_2.31
 		name: %debian-rebol-dev-mips64le
-		 cmd  %debian/mips64le/ {docker build --platform linux/mips64le   -t oldes/rebol-dev:debian-mips64le -f Dockerfile-dev .}
-		 cmd  %debian/mips64le/ {docker run   --platform linux/mips64le --rm oldes/rebol-dev:debian-mips64le rebol -v}
+		 cmd  %debian/mips64le/ {docker build --platform linux/mips64le   -t docker.io/oldes/rebol-dev:debian-mips64le -f Dockerfile-dev .}
+		 cmd  %debian/mips64le/ {docker run   --platform linux/mips64le --rm docker.io/oldes/rebol-dev:debian-mips64le rebol -v}
 	]
 	"Docker Image: Rebol-dev - Ubuntu     (i386)" [ ;- glibc_2.27
 		name: %ubuntu-rebol-dev-i386
-		 cmd  %ubuntu/i386/ {docker build --platform linux/i386   -t oldes/rebol-dev:ubuntu-i386 -t oldes/rebol-dev:ubuntu-x86 -f Dockerfile-dev .}
-		 cmd  %ubuntu/i386/ {docker run   --platform linux/i386 --rm oldes/rebol-dev:ubuntu-i386 rebol -v}
+		 cmd  %ubuntu/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:ubuntu-i386 -t docker.io/oldes/rebol-dev:ubuntu-x86 -f Dockerfile-dev .}
+		 cmd  %ubuntu/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:ubuntu-i386 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Ubuntu-23  (x64)" [ ;- glibc_2.36
 		name: %ubuntu23-rebol-dev-x64
-		 cmd  %ubuntu/amd64/ {docker build --platform linux/amd64   -t oldes/rebol-dev:ubuntu23-x64 -t oldes/rebol-dev:ubuntu23-amd64 -f Dockerfile-23-dev .}
-		 cmd  %ubuntu/amd64/ {docker run   --platform linux/amd64 --rm oldes/rebol-dev:ubuntu23-x64 rebol -v}
+		 cmd  %ubuntu/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:ubuntu23-x64 -t docker.io/oldes/rebol-dev:ubuntu23-amd64 -f Dockerfile-23-dev .}
+		 cmd  %ubuntu/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:ubuntu23-x64 rebol -v}
 	]
 
 	;--------------------------------------------------------------------------------------------------------------------
@@ -125,56 +125,56 @@ eggs: [
 	"Build all Rebol versions: Alpine     (ARM32v7)" [
 		name: %rebol-alpine-arm32v7
 		 cmd  %alpine/arm32v7/ {chmod +x ./build-rebol-alpine-arm32.sh}
-		 cmd  %alpine/arm32v7/ {docker run -v $PWD:/out/ oldes/rebol-dev:alpine-arm32v7 /out/build-rebol-alpine-arm32.sh}
+		 cmd  %alpine/arm32v7/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm32v7 /out/build-rebol-alpine-arm32.sh}
 	]
 	"Build all Rebol versions: Alpine     (ARM64v8)" [
 		name: %rebol-alpine-arm64v8
 		 cmd  %alpine/arm64v8/ {chmod +x ./build-rebol-alpine-arm64.sh}
-		 cmd  %alpine/arm64v8/ {docker run -v $PWD:/out/ oldes/rebol-dev:alpine-arm64v8 /out/build-rebol-alpine-arm64.sh}
+		 cmd  %alpine/arm64v8/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm64v8 /out/build-rebol-alpine-arm64.sh}
 	]
 	"Build all Rebol versions: Alpine     (x64)" [
 		name: %rebol-alpine-x64
 		 cmd  %alpine/amd64/ {chmod +x ./build-rebol-alpine-x64.sh}
-		 cmd  %alpine/amd64/ {docker run -v $PWD:/out/ oldes/rebol-dev:alpine-arm64v8 /out/build-rebol-alpine-arm64.sh}
+		 cmd  %alpine/amd64/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-amd64 /out/build-rebol-alpine-x64.sh}
 	]
 	"Build all Rebol versions: Archlinux  (x64)" [
 		name: %rebol-archlinux-x64
 		cmd %archlinux/amd64/ {chmod +x ./build-rebol-archlinux-amd64.sh}
-		cmd %archlinux/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ oldes/rebol-dev:archlinux-amd64 /out/build-rebol-archlinux-amd64.sh}
+		cmd %archlinux/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:archlinux-amd64 /out/build-rebol-archlinux-amd64.sh}
 	]
 	"Build all Rebol versions: Debian-10  (x64)" [
 		name: %rebol-debian10-x64
 		cmd %debian/amd64/ {chmod +x ./build-rebol-debian10-amd64.sh}
-		cmd %debian/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ oldes/rebol-dev:debian10-amd64 /out/build-rebol-debian10-amd64.sh}
+		cmd %debian/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:debian10-amd64 /out/build-rebol-debian10-amd64.sh}
 	]
 	"Build all Rebol versions: Debian-10  (i386)" [
 		name: %rebol-debian10-i386
 		cmd %debian/i386/ {chmod +x ./build-rebol-debian10-i386.sh}
-		cmd %debian/i386/ {docker run --platform linux/i386 -v $PWD:/out/ oldes/rebol-dev:debian10-i386 /out/build-rebol-debian10-i386.sh}
+		cmd %debian/i386/ {docker run --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:debian10-i386 /out/build-rebol-debian10-i386.sh}
 	]
 	"Build all Rebol versions: Debian-11  (x64)" [
 		name: %rebol-debian11-x64
 		cmd %debian/amd64/ {chmod +x ./build-rebol-debian11-amd64.sh}
-		cmd %debian/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ oldes/rebol-dev:debian11-amd64 /out/build-rebol-debian11-amd64.sh}
+		cmd %debian/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:debian11-amd64 /out/build-rebol-debian11-amd64.sh}
 	]
 	"Build all Rebol versions: Debian-11  (i386)" [
 		name: %rebol-debian11-i386
 		cmd %debian/i386/ {chmod +x ./build-rebol-debian11-i386.sh}
-		cmd %debian/i386/ {docker run --platform linux/i386 -v $PWD:/out/ oldes/rebol-dev:debian11-i386 /out/build-rebol-debian11-i386.sh}
+		cmd %debian/i386/ {docker run --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:debian11-i386 /out/build-rebol-debian11-i386.sh}
 	]
 	"Build all Rebol versions: Debian     (mips64le)" [
 		name: %rebol-debian-mips64le
 		cmd %debian/mips64le/ {chmod +x ./build-rebol-debian-mips64le.sh}
-		cmd %debian/mips64le/ {docker run --platform linux/mips64le -v $PWD:/out/ oldes/rebol-dev:debian-mips64le /out/build-rebol-debian-mips64le.sh}
+		cmd %debian/mips64le/ {docker run --platform linux/mips64le -v $PWD:/out/ docker.io/oldes/rebol-dev:debian-mips64le /out/build-rebol-debian-mips64le.sh}
 	]
 	"Build all Rebol versions: Ubuntu     (i386)" [
 		name: %rebol-ubuntu-x86
 		cmd %ubuntu/i386/ {chmod +x ./build-rebol-ubuntu-i386.sh}
-		cmd %ubuntu/i386/ {docker run --platform linux/i386 -v $PWD:/out/ oldes/rebol-dev:ubuntu-i386 /out/build-rebol-ubuntu-i386.sh}
+		cmd %ubuntu/i386/ {docker run --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:ubuntu-i386 /out/build-rebol-ubuntu-i386.sh}
 	]
 	"Build all Rebol versions: Ubuntu-23  (x64)" [
 		name: %rebol-ubuntu23-x64
 		cmd %ubuntu/amd64/ {chmod +x ./build-rebol-ubuntu23-amd64.sh}
-		cmd %ubuntu/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ oldes/rebol-dev:ubuntu23-amd64 /out/build-rebol-ubuntu23-amd64.sh}
+		cmd %ubuntu/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:ubuntu23-amd64 /out/build-rebol-ubuntu23-amd64.sh}
 	]
 ]
