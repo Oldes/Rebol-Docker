@@ -66,13 +66,13 @@ eggs: [
 
 	"Docker Image: Rebol-dev - Alpine     (ARM32v7)" [
 		name: %alpine-rebol-dev-arm32v7
-		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t docker.io/oldes/rebol-dev:alpine-arm32 -t docker.io/oldes/rebol-dev:alpine-armv7 -f Dockerfile-dev .}
-		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm docker.io/oldes/rebol-dev:alpine-arm32 rebol -v}
+		 cmd  %alpine/arm32v7/ {docker build --platform linux/arm/v7   -t docker.io/oldes/rebol-dev:alpine-arm32v7 -t docker.io/oldes/rebol-dev:alpine-armv7 -f Dockerfile-dev .}
+		 cmd  %alpine/arm32v7/ {docker run   --platform linux/arm/v7 --rm docker.io/oldes/rebol-dev:alpine-arm32v7 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Alpine     (ARM64v8)" [
 		name: %alpine-rebol-dev-arm64v8
-		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t docker.io/oldes/rebol-dev:alpine-arm64 -t docker.io/oldes/rebol-dev:alpine-armv8 -f Dockerfile-dev .}
-		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm docker.io/oldes/rebol-dev:alpine-arm64 rebol -v}
+		 cmd  %alpine/arm64v8/ {docker build --platform linux/arm64/v8   -t docker.io/oldes/rebol-dev:alpine-arm64v8 -t docker.io/oldes/rebol-dev:alpine-armv8 -f Dockerfile-dev .}
+		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm docker.io/oldes/rebol-dev:alpine-arm64v8 rebol -v}
 	]
 	"Docker Image: Rebol-dev - Alpine     (x64)" [
 		name: %alpine-rebol-dev-x64

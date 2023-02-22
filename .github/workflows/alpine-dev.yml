@@ -14,8 +14,7 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
-    env:
-      TAG: alpine
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -26,13 +25,26 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build Alpine x86_64 image
-        run: |
-          cd ./alpine/x86_64/
-          docker build -f Dockerfile-dev -t oldes/rebol-dev:$TAG .
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
 
+      - name: Build Alpine arm32v7 image
+        run: ./siskin Rebol-Docker.nest alpine-rebol-dev-arm32v7
       - name: Test image
-        run: docker run oldes/rebol-dev:$TAG rebol -v
-
+        run: docker run oldes/rebol-dev:alpine-arm32v7 rebol -v
       - name: Push image
-        run: docker push oldes/rebol-dev:$TAG
+        run: docker push oldes/rebol-dev:alpine-arm32v7
+
+      - name: Build Alpine arm64v8 image
+        run: ./siskin Rebol-Docker.nest alpine-rebol-dev-arm64v8
+      - name: Test image
+        run: docker run oldes/rebol-dev:alpine-arm64v8 rebol -v
+      - name: Push image
+        run: docker push oldes/rebol-dev:alpine-arm64v8
+
+      - name: Build Alpine amd64 image
+        run: ./siskin Rebol-Docker.nest alpine-rebol-dev-x64
+      - name: Test image
+        run: docker run oldes/rebol-dev:alpine-amd64 rebol -v
+      - name: Push image
+        run: docker push oldes/rebol-dev:alpine-amd64
