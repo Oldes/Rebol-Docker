@@ -125,17 +125,17 @@ eggs: [
 	"Build all Rebol versions: Alpine     (ARM32v7)" [
 		name: %rebol-alpine-arm32v7
 		 cmd  %alpine/arm32v7/ {chmod +x ./build-rebol-alpine-arm32.sh}
-		 cmd  %alpine/arm32v7/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm32v7 /out/build-rebol-alpine-arm32.sh}
+		 cmd  %alpine/arm32v7/ {docker run --platform linux/arm/v7 -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm32v7 /out/build-rebol-alpine-arm32.sh}
 	]
 	"Build all Rebol versions: Alpine     (ARM64v8)" [
 		name: %rebol-alpine-arm64v8
 		 cmd  %alpine/arm64v8/ {chmod +x ./build-rebol-alpine-arm64.sh}
-		 cmd  %alpine/arm64v8/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm64v8 /out/build-rebol-alpine-arm64.sh}
+		 cmd  %alpine/arm64v8/ {docker run --platform linux/arm64/v8 -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-arm64v8 /out/build-rebol-alpine-arm64.sh}
 	]
 	"Build all Rebol versions: Alpine     (x64)" [
 		name: %rebol-alpine-x64
 		 cmd  %alpine/amd64/ {chmod +x ./build-rebol-alpine-x64.sh}
-		 cmd  %alpine/amd64/ {docker run -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-amd64 /out/build-rebol-alpine-x64.sh}
+		 cmd  %alpine/amd64/ {docker run --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-amd64 /out/build-rebol-alpine-x64.sh}
 	]
 	"Build all Rebol versions: Archlinux  (x64)" [
 		name: %rebol-archlinux-x64
