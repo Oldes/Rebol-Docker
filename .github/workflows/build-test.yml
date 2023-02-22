@@ -35,7 +35,7 @@ jobs:
         run: docker pull --platform linux/arm/v7 oldes/rebol-dev:alpine-arm32v7 
 
       - name: Rebol version on alpine-arm32v7
-        run: docker run --platform linux/arm/v7 -it --rm oldes/rebol-dev:alpine-arm32v7 /bin/rebol -v 
+        run: docker run --platform linux/arm/v7 --rm oldes/rebol-dev:alpine-arm32v7 /bin/rebol -v 
 
 #      - name: Build all Rebol versions for alpine-arm32v7
 #        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v7
