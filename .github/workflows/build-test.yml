@@ -11,10 +11,10 @@ on:
 
 jobs:
   # testing Linux builds...
-  macos:
+  linux-test:
     strategy:
       fail-fast: false
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     env:
       TAG: alpine
     steps:
@@ -29,6 +29,12 @@ jobs:
 
 #      - name: Install Siskin Builder
 #        uses: oldes/install-siskin@v0.7.2
+
+      -name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      -name: Docker info
+        run: docker version && docker info
 
 
       - name: Download Alpine-arm32v7 Rebol-dev container
