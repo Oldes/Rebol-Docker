@@ -1,0 +1,17 @@
+FROM arm32v7/alpine:latest
+
+WORKDIR /rebol
+ENV REBOL_HOME=/rebol
+
+RUN apk update
+RUN apk add git
+RUN apk add build-base
+
+RUN wget https://github.com/Oldes/Rebol3/releases/download/3.10.3/rebol3-bulk-linux-arm32-musl.gz
+RUN gunzip ./rebol3-bulk-linux-arm32-musl.gz
+RUN mv ./rebol3-bulk-linux-arm32-musl /bin/rebol
+RUN chmod +x /bin/rebol
+
+RUN git clone https://github.com/Siskin-framework/Builder.git --depth 1
+
+CMD "/bin/sh"

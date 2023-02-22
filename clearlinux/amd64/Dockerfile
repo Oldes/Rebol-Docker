@@ -1,9 +1,9 @@
-FROM i386/ubuntu
+FROM amd64/clearlinux:base
 WORKDIR /rebol
 ENV REBOL_HOME=/rebol
 ENV REBOL_VERSION 3.10.3
 
-ADD https://github.com/Oldes/Rebol3/releases/download/$REBOL_VERSION/rebol3-bulk-linux-x86-glibc_2.27.gz .
+ADD https://github.com/Oldes/Rebol3/releases/download/$REBOL_VERSION/rebol3-bulk-linux-x64.gz .
 RUN gunzip ./rebol* && mv ./rebol* /bin/rebol && chmod +x /bin/rebol
 
 LABEL version="/$REBOL_VERSION"

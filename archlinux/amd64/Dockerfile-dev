@@ -1,0 +1,18 @@
+FROM archlinux:latest
+
+ENV REBOL_HOME=/rebol
+ENV REBOL_VERSION 3.10.3
+ENV REBOL3=/bin/rebol
+
+RUN pacman -Syq
+RUN pacman -S --noconfirm core/archlinux-keyring
+RUN pacman -S --noconfirm core/gcc
+RUN pacman -S --noconfirm extra/git
+
+WORKDIR /rebol
+ADD https://github.com/Oldes/Rebol3/releases/download/$REBOL_VERSION/rebol3-bulk-linux-x64.gz .
+RUN gunzip ./rebol* && mv ./rebol* /bin/rebol && chmod +x /bin/rebol
+
+RUN git clone https://github.com/Siskin-framework/Builder.git --depth 1
+
+CMD "/bin/sh"

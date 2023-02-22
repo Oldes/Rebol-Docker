@@ -1,9 +1,9 @@
-FROM amd64/debian:10-slim
+FROM amd64/ubuntu:20.04
 WORKDIR /rebol
 ENV REBOL_HOME=/rebol
-ENV REBOL_VERSION 3.5.3
+ENV REBOL_VERSION 3.10.3
 
-ADD https://github.com/Siskin-framework/Rebol/releases/download/$REBOL_VERSION/rebol3-bulk-x64-libc-gcc.gz .
+ADD https://github.com/Oldes/Rebol3/releases/download/$REBOL_VERSION/rebol3-bulk-linux-x64.gz .
 RUN gunzip ./rebol* && mv ./rebol* /bin/rebol && chmod +x /bin/rebol
 
 LABEL version="/$REBOL_VERSION"
