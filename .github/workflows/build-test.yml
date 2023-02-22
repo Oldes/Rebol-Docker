@@ -11,10 +11,10 @@ on:
 
 jobs:
   # testing Linux builds...
-  linux:
+  macos:
     strategy:
       fail-fast: false
-    runs-on: ubuntu-20.04
+    runs-on: macos-latest
     env:
       TAG: alpine
     steps:
