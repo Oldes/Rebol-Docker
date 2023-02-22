@@ -10,11 +10,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  # testing Linux builds...
-  linux:
+  Rebol-Alpine-x86_64:
     strategy:
       fail-fast: false
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TAG: alpine
     steps:
@@ -30,7 +29,6 @@ jobs:
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.7.2
 
-
       - name: Download Alpine-amd64 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-amd64 
 
@@ -42,6 +40,28 @@ jobs:
           name: Rebol-Alpine-Linux
           path: ./alpine/amd64/*.gz
 
+
+  Rebol-Alpine-arm32v7:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      TAG: alpine
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
 
       - name: Download Alpine-arm32v7 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-arm32v7 
@@ -55,6 +75,28 @@ jobs:
           path: ./alpine/arm32v7/*.gz
 
 
+  Rebol-Alpine-arm64v8:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      TAG: alpine
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
+        
       - name: Download Alpine-arm64v8 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-arm64v8 
 
