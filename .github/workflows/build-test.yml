@@ -27,8 +27,8 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-#      - name: Install Siskin Builder
-#        uses: oldes/install-siskin@v0.7.2
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -43,6 +43,6 @@ jobs:
       - name: Rebol version on alpine-arm32v7
         run: docker run --platform linux/arm/v7 --rm oldes/rebol-dev:alpine-arm32v7 /bin/rebol -v 
 
-#      - name: Build all Rebol versions for alpine-arm32v7
-#        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v7
+      - name: Build all Rebol versions for alpine-arm32v7
+        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v7
 
