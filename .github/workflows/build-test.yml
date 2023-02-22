@@ -11,7 +11,7 @@ on:
 
 jobs:
   # testing Linux builds...
-  linux:
+  linux-test:
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
@@ -30,10 +30,10 @@ jobs:
 #      - name: Install Siskin Builder
 #        uses: oldes/install-siskin@v0.7.2
 
-      -name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
-      -name: Docker info
+      - name: Docker info
         run: docker version && docker info
 
 
