@@ -14,7 +14,7 @@ jobs:
   linux:
     strategy:
       fail-fast: false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       TAG: alpine
     steps:
@@ -28,14 +28,14 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.1
-        
+        uses: oldes/install-siskin@v0.7.2
+
 
       - name: Download Alpine-amd64 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-amd64 
 
       - name: Build all Rebol versions for alpine-amd64
-        run: siskin Rebol-Docker.nest rebol-alpine-x64
+        run: ./siskin Rebol-Docker.nest rebol-alpine-x64
 
       - uses: actions/upload-artifact@v2
         with:
@@ -47,7 +47,7 @@ jobs:
         run: docker pull oldes/rebol-dev:alpine-arm32v7 
 
       - name: Build all Rebol versions for alpine-arm32v7
-        run: siskin Rebol-Docker.nest rebol-alpine-arm32v7
+        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v7
 
       - uses: actions/upload-artifact@v2
         with:
@@ -59,7 +59,7 @@ jobs:
         run: docker pull oldes/rebol-dev:alpine-arm64v8 
 
       - name: Build all Rebol versions for alpine-arm64v8
-        run: siskin Rebol-Docker.nest rebol-alpine-arm64v8
+        run: ./siskin Rebol-Docker.nest rebol-alpine-arm64v8
 
       - uses: actions/upload-artifact@v2
         with:
