@@ -11,7 +11,7 @@ on:
 
 jobs:
   # testing Linux builds...
-  linux-test:
+  linux:
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
