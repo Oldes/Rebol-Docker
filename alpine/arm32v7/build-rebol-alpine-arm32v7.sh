@@ -2,7 +2,7 @@
 
 # this script is supposed to be run from rebol-dev container!!!
 
-export ARCH=arm32
+export ARCH=arm32v7
 export LIBC=musl
 
 cd /rebol/Builder/
