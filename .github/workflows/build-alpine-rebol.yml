@@ -100,7 +100,7 @@ jobs:
         run: docker pull oldes/rebol-dev:alpine-arm32v6
 
       - name: Build all Rebol versions for alpine-arm32v6
-        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v6
+        run: ./siskin Rebol-Docker.nest rebol-alpine-armv6
 
       - uses: actions/upload-artifact@v3
         with:
@@ -133,7 +133,7 @@ jobs:
         run: docker pull oldes/rebol-dev:alpine-arm32v7 
 
       - name: Build all Rebol versions for alpine-arm32v7
-        run: ./siskin Rebol-Docker.nest rebol-alpine-arm32v7
+        run: ./siskin Rebol-Docker.nest rebol-alpine-armv7
 
       - uses: actions/upload-artifact@v3
         with:
