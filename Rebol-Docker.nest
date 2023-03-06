@@ -139,6 +139,16 @@ eggs: [
 		 cmd  %ubuntu/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:ubuntu23-x64 -t docker.io/oldes/rebol-dev:ubuntu23-amd64 -f Dockerfile-23-dev .}
 		 cmd  %ubuntu/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:ubuntu23-x64 rebol -v}
 	]
+	"Docker Image: Rebol-dev - Haiku OS   (x86)" [
+		name: %haiku-rebol-dev-x86
+		 cmd  %haiku/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:haiku-x86 -f Dockerfile-x86 .}
+		 cmd  %haiku/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:haiku-x86 rebol -v}
+	]
+	"Docker Image: Rebol-dev - Haiku OS   (x64)" [
+		name: %haiku-rebol-dev-x64
+		 cmd  %haiku/ {docker build --platform linux/x86_64   -t docker.io/oldes/rebol-dev:haiku-x64 -f Dockerfile-x64 .}
+		 cmd  %haiku/ {docker run   --platform linux/x86_64 --rm docker.io/oldes/rebol-dev:haiku-x64 rebol -v}
+	]
 
 	;--------------------------------------------------------------------------------------------------------------------
 	
@@ -206,5 +216,15 @@ eggs: [
 		name: %rebol-ubuntu23-x64
 		cmd %ubuntu/amd64/ {chmod +x ./build-rebol-ubuntu23-amd64.sh}
 		cmd %ubuntu/amd64/ {docker run --rm --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:ubuntu23-amd64 /out/build-rebol-ubuntu23-amd64.sh}
+	]
+	"Build all Rebol versions: Haiku      (x86)" [
+		name: %rebol-haiku-x86
+		cmd %haiku/ {chmod +x ./build-rebol-haiku-x86.sh}
+		cmd %haiku/ {docker run --rm --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:haiku-x86  /out/build-rebol-haiku-x86.sh}
+	]
+	"Build all Rebol versions: Haiku      (x64)" [
+		name: %rebol-haiku-x64
+		cmd %haiku/ {chmod +x ./build-rebol-haiku-x64.sh}
+		cmd %haiku/ {docker run --rm --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:haiku-x64  /out/build-rebol-haiku-x64.sh}
 	]
 ]

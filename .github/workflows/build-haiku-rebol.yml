@@ -1,0 +1,71 @@
+name: 'Build Haiku Rebol'
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Rebol-Haiku-x86:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      TAG: alpine
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
+
+      - name: Download Haiku Rebol-dev container
+        run: docker pull docker.io/oldes/rebol-dev:haiku-x86
+
+      - name: Build all Rebol versions for Haiku OS x86
+        run: ./siskin Rebol-Docker.nest rebol-haiku-x86
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Rebol-Haiku-x86
+          path: ./haiku/*.gz
+
+  Rebol-Haiku-x86_64:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      TAG: alpine
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.7.2
+
+      - name: Download Haiku Rebol-dev container
+        run: docker pull docker.io/oldes/rebol-dev:haiku-x64 
+
+      - name: Build all Rebol versions for Haiku OS x86_64
+        run: ./siskin Rebol-Docker.nest rebol-haiku-x64
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Rebol-Haiku-x64
+          path: ./haiku/*.gz

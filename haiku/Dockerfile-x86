@@ -1,0 +1,26 @@
+FROM --platform=linux/i386 haiku/cross-compiler:x86_gcc2h-r1beta4 AS Haiku-dev-x86
+
+WORKDIR /rebol
+ENV REBOL_HOME=/rebol
+
+
+RUN wget https://github.com/Oldes/Rebol3/releases/download/3.10.3/rebol3-core-linux-x86.gz
+RUN gunzip ./rebol3* && mv ./rebol3* /bin/rebol && chmod +x /bin/rebol
+
+RUN git clone https://github.com/Siskin-framework/Builder.git --depth 1
+
+RUN    wget https://eu.hpkg.haiku-os.org/haikuports/master/x86_gcc2/current/packages/libiconv_devel-1.17-3-x86_gcc2.hpkg \
+	&& wget https://eu.hpkg.haiku-os.org/haikuports/master/x86_gcc2/current/packages/libiconv-1.17-3-x86_gcc2.hpkg \
+	&& package extract -C /system libiconv-1.17-3-x86_gcc2.hpkg \
+	&& package extract -C /system libiconv_devel-1.17-3-x86_gcc2.hpkg \
+	&& rm *.hpkg \
+	&& cd /system/lib \
+	&& ln -s  libiconv.so.2 libiconv.so \
+	&& cd /rebol
+
+#RUN rebol siskin.r3 rebol 21
+#vi tree/rebol/Rebol/make/rebol3.nest
+#ls -la /system/lib/libiconv*
+#ln -s  libiconv.so.2 libiconv.so
+CMD "/bin/sh"
+#CMD "rebol siskin.r3 rebol 21"
