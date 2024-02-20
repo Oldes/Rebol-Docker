@@ -38,7 +38,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Rebol-Alpine-Linux
-          path: ./alpine/x86/*.gz
+          path: ./alpine/i386/*.gz
 
   Rebol-Alpine-x86_64:
     strategy:
