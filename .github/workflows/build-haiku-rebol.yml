@@ -21,13 +21,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@v0.13.0
 
       - name: Download Haiku Rebol-dev container
         run: docker pull docker.io/oldes/rebol-dev:haiku-x86
@@ -51,13 +51,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@v0.13.0
 
       - name: Download Haiku Rebol-dev container
         run: docker pull docker.io/oldes/rebol-dev:haiku-x64 

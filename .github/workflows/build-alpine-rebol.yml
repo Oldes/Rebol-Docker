@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
@@ -51,16 +51,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@v0.13.0
 
       - name: Download Alpine-amd64 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-amd64 
@@ -85,16 +85,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@0.13.0
 
       - name: Download Alpine-arm32v6 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-arm32v6
@@ -124,10 +124,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@0.13.0
 
       - name: Download Alpine-arm32v7 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-arm32v7 
@@ -158,10 +158,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@0.13.0
 
       - name: Download Alpine-arm64v8 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-arm64v8 
