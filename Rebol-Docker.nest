@@ -26,11 +26,11 @@ eggs: [
 	]
 	"Docker image: Rebol     - Alpine     (x86 / i386)" [
 		name: %alpine-rebol-bulk-i386
-		 cmd  %alpine/x86/ {docker build --platform linux/i386   -t docker.io/oldes/rebol:alpine-i386 -t docker.io/oldes/rebol:alpine-x86 -f Dockerfile .}
-		 cmd  %alpine/x86/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol:alpine-i386 rebol -v}
-		 cmd  %alpine/x86/ {docker tag docker.io/oldes/rebol:alpine-i386 docker.io/rebol/alpine-i386:latest}
-		 cmd  %alpine/x86/ {docker push oldes/rebol:alpine-i386}
-		 cmd  %alpine/x86/ {docker push docker.io/rebol/alpine-i386:latest}
+		 cmd  %alpine/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol:alpine-i386 -t docker.io/oldes/rebol:alpine-x86 -f Dockerfile .}
+		 cmd  %alpine/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol:alpine-i386 rebol -v}
+		 cmd  %alpine/i386/ {docker tag docker.io/oldes/rebol:alpine-i386 docker.io/rebol/alpine-i386:latest}
+		 cmd  %alpine/i386/ {docker push oldes/rebol:alpine-i386}
+		 cmd  %alpine/i386/ {docker push docker.io/rebol/alpine-i386:latest}
 	]
 	"Docker image: Rebol     - Alpine     (x64 / amd64)" [
 		name: %alpine-rebol-bulk-amd64
@@ -107,13 +107,13 @@ eggs: [
 		 cmd  %alpine/arm64v8/ {docker run   --platform linux/arm64/v8 --rm docker.io/oldes/rebol-dev:alpine-arm64v8 rebol -v}
 		 cmd  %alpine/arm64v8/ {docker push oldes/rebol-dev:alpine-arm64v8}
 	]
-	"Docker Image: Rebol-dev - Alpine     (x86)" [
+	"Docker Image: Rebol-dev - Alpine     (x86 / i386)" [
 		name: %alpine-rebol-dev-i386
-		 cmd  %alpine/x86/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:alpine-i386 -t docker.io/oldes/rebol-dev:alpine-x86 -f Dockerfile-dev .}
-		 cmd  %alpine/x86/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:alpine-i386 rebol -v}
-		 cmd  %alpine/x86/ {docker push oldes/rebol-dev:alpine-i386}
+		 cmd  %alpine/i386/ {docker build --platform linux/i386   -t docker.io/oldes/rebol-dev:alpine-i386 -t docker.io/oldes/rebol-dev:alpine-x86 -f Dockerfile-dev .}
+		 cmd  %alpine/i386/ {docker run   --platform linux/i386 --rm docker.io/oldes/rebol-dev:alpine-i386 rebol -v}
+		 cmd  %alpine/i386/ {docker push oldes/rebol-dev:alpine-i386}
 	]
-	"Docker Image: Rebol-dev - Alpine     (x64)" [
+	"Docker Image: Rebol-dev - Alpine     (x64 / amd64)" [
 		name: %alpine-rebol-dev-amd64
 		 cmd  %alpine/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/rebol-dev:alpine-amd64 -t docker.io/oldes/rebol-dev:alpine-x64 -f Dockerfile-dev .}
 		 cmd  %alpine/amd64/ {docker run   --platform linux/amd64 --rm docker.io/oldes/rebol-dev:alpine-amd64 rebol -v}
