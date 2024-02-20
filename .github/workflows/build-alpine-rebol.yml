@@ -27,7 +27,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Install Siskin Builder
-        uses: oldes/install-siskin@v0.7.2
+        uses: oldes/install-siskin@v0.13.0
 
       - name: Download Alpine-i386 Rebol-dev container
         run: docker pull oldes/rebol-dev:alpine-i386 

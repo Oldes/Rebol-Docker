@@ -35,6 +35,14 @@ jobs:
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.13.0
 
+        # Add support for more platforms with QEMU (optional)
+        # https://github.com/docker/setup-qemu-action
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build Alpine Rebol/Bulk image for ${{ matrix.arch }}
         run: ./siskin Rebol-Docker.nest alpine-rebol-bulk-${{ matrix.arch }}
 

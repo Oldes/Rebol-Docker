@@ -194,8 +194,8 @@ eggs: [
 	]
 	"Build all Rebol versions: Alpine     (x86)" [
 		name: %rebol-alpine-x86
-		 cmd  %alpine/x86/ {chmod +x ./build-rebol-alpine-x86.sh}
-		 cmd  %alpine/x86/ {docker run --rm --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-i386 /out/build-rebol-alpine-x86.sh}
+		 cmd  %alpine/i386/ {chmod +x ./build-rebol-alpine-x86.sh}
+		 cmd  %alpine/i386/ {docker run --rm --platform linux/i386 -v $PWD:/out/ docker.io/oldes/rebol-dev:alpine-i386 /out/build-rebol-alpine-x86.sh}
 	]
 	"Build all Rebol versions: Alpine     (x64)" [
 		name: %rebol-alpine-x64
