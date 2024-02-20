@@ -21,7 +21,7 @@ jobs:
           - arm64v8
           - i386
           - amd64
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
