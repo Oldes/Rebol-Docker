@@ -14,36 +14,17 @@ jobs:
   linux:
     strategy:
       fail-fast: false
+      matrix:
+        arch:
+          - arm32v6
+          - arm32v7
+          - arm64v8
+          - i386
+          - amd64
     runs-on: ubuntu-latest
-    env:
-      VER: 3.10.3
-      TAG: 3.10.3-alpine-x86_64
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-#      - name: Login to GitHub Container Registry
-#        uses: docker/login-action@v2
-#        with:
-#          registry: ghcr.io
-#          username: ${{ github.actor }}
-#          password: ${{ secrets.PACK_TOKEN }}
-
-#      - name: Build Alpine x86_64 image
-#        run: |
-#          cd ./alpine/amd64/
-#          docker build . --tag ghcr.io/oldes/rebol:latest
-#          docker tag ghcr.io/oldes/rebol:latest ghcr.io/oldes/rebol:$VER
-#
-#      - name: Test image - Rebol version
-#        run: docker run ghcr.io/oldes/rebol:latest rebol -v
-#
-#      - name: Test image - Rebol usage
-#        run: docker run ghcr.io/oldes/rebol:latest rebol --usage
-#
-#      - name: Push image to Github Container Registry
-#        run: docker push ghcr.io/oldes/rebol:latest
-
+        uses: actions/checkout@v3
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -51,28 +32,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build Alpine x86_64 image
-        run: |
-          cd ./alpine/amd64/
-          docker build -t oldes/rebol:$TAG .
-          docker tag docker.io/oldes/rebol:$TAG docker.io/oldes/rebol:alpine
-          docker tag docker.io/oldes/rebol:$TAG docker.io/rebol/alpine:latest
-#          docker tag docker.io/oldes/rebol:$TAG ghcr.io/oldes/rebol:latest
-#          docker tag docker.io/oldes/rebol:$TAG ghcr.io/oldes/rebol:$VER
+      - name: Install Siskin Builder
+        uses: oldes/install-siskin@v0.13.0
 
-      - name: Test image - Rebol version
-        run: docker run docker.io/oldes/rebol:$TAG rebol -v
+      - name: Build Alpine Rebol/Bulk image for ${{ matrix.arch }}
+        run: ./siskin Rebol-Docker.nest alpine-rebol-bulk-${{ matrix.arch }}
 
-      - name: Test image - Rebol usage
-        run: docker run docker.io/oldes/rebol:$TAG rebol --usage
-
-      - name: Push image to Oldes repository
-        run: |
-          docker push docker.io/oldes/rebol:$TAG
-          docker push docker.io/oldes/rebol:alpine
-
-      - name: Push image to Rebol repository
-        run: docker push docker.io/rebol/alpine
+      - name: Build Alpine Rebol/Dev image for ${{ matrix.arch }}
+        run: ./siskin Rebol-Docker.nest alpine-rebol-dev-${{ matrix.arch }}
 
 #      - name: Log in to Github registry
 #        # This is where you will update the personal access token to GITHUB_TOKEN

@@ -1,7 +1,0 @@
-FROM oldes/rebol:alpine-i386
-
-RUN apk update && apk add git build-base
-
-RUN git clone https://github.com/Siskin-framework/Builder.git --depth 1
-
-CMD "/bin/sh"

@@ -1,4 +1,4 @@
-FROM oldes/rebol:alpine-arm64v8
+FROM oldes/rebol:alpine-i386
 
 RUN apk update && apk add git build-base
 
