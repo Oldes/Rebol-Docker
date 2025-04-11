@@ -57,7 +57,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.13.0
@@ -91,7 +91,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.13.0
@@ -124,7 +124,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.13.0
@@ -158,7 +158,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Siskin Builder
         uses: oldes/install-siskin@v0.13.0
