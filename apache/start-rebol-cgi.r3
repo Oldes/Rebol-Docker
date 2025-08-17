@@ -56,7 +56,7 @@ unless docker-available? [
 ensure-dir public-dir
 ensure-dir cgi-dir
 
-res: do-cmd [{docker ps -aq -f name="^^} image-name {$"}]
+res: do-cmd [{docker ps -aq -f name="^^} container-name {$"}]
 
 either any [error? res empty? res][
 	docker-run-cmd: rejoin [
