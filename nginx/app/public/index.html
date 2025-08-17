@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* stack vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        img {
+            height: 30vh;
+            width: 30vh;
+        }
+        a {
+            margin-top: 1rem; /* space between image and link */
+        }
+    </style>
+</head>
+<body>
+    <a href="#">
+        <img src="rebol-icon.svg" alt="Rebol">
+    </a>
+    <a href="/form.html">Test form</a>
+    <a href="/api/header">Echo request header</a>
+    <a href="/api/env">Echo <code>env</code> result</a>
+</body>
+</html>

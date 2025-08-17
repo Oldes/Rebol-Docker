@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 850 850">
+  <defs>
+    <style>
+      .cls-1 {fill: #fff;}
+      .cls-2 {
+        fill: #2b2a2a;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 53px;
+      }
+      .cls-3 {
+        fill: url(#linear-gradient);
+        filter: url(#drop-shadow-1);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="425" y1="6" x2="425" y2="826" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d4e2e8"/>
+      <stop offset="1" stop-color="#747371"/>
+    </linearGradient>
+    <filter id="drop-shadow-1" x="0" y="0" width="850" height="850" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="9"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".2"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <path class="cls-3" d="M688.36,826H171.62c-86.79-6.95-156.62-81.4-156.62-165.79V181.71C15,101.3,77.85,6,185.58,6h461.87c101.75,0,182.97,68.08,187.54,156.85v495.38c-5.72,73.98-41.9,151.89-146.64,167.77Z"/>
+    <path class="cls-2" d="M669.5,774.5H187.5c-71-6-121-66-121-131V200.5c6-79,34-131,123-143h459c75,0,131,50,135,128v460c-5,65-45,121-114,129Z"/>
+    <polygon class="cls-1" points="165.78 149.39 265.78 205.39 265.78 228 165.78 282.37 165.78 253.39 241.78 215.39 165.78 177.39 165.78 149.39"/>
+    <polygon class="cls-1" points="297.78 149.14 397.78 205.14 397.78 227.75 297.78 282.12 297.78 253.14 373.78 215.14 297.78 177.14 297.78 149.14"/>
+  </g>
+</svg>
