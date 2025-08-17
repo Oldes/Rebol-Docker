@@ -1,5 +1,5 @@
 REBOL [
-    Title:   "Start Apache+Rebol CGI Docker Container"
+    Title:   "Start NGINX with Rebol as a backend server Docker Container"
     Purpose: "Create/mount public and cgi-bin directories and start container"
     Notes:   "Requires Docker Desktop."
 ]
