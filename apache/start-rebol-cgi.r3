@@ -1,18 +1,14 @@
 REBOL [
-    Title: "Start Apache+Rebol CGI Docker Container (Windows)"
+    Title:   "Start Apache+Rebol CGI Docker Container"
     Purpose: "Create/mount public and cgi-bin directories and start container"
-    Notes: {
-        - Requires Docker Desktop.
-        - Run with Rebol3 on Windows: rebol3.exe -qws start-rebol-cgi.r
-        - Ensure this file uses LF (Unix) line endings.
-    }
+    Notes:   "Requires Docker Desktop."
 ]
 
 ;--------------------------------
 ;- Configuration (edit as needed)
-image-name: "rebol3-cgi"
-container-name: "rebol-cgi-apache"
-port: 8080
+image-name:     "rebol-cgi-apache"
+container-name: "rebol-cgi-app"
+port:           8080
 
 ; Host directories (relative to script directory by default)
 base-dir:   what-dir
@@ -39,9 +35,7 @@ do-cmd: function [cmd][
 	err: copy ""
 	?? cmd
 	call/shell/output/error :cmd :out :err
-	unless empty? error [
-		return make error! error
-	]
+	unless empty? err [return make error! err]
 	?? out
 	out
 ]
@@ -66,19 +60,17 @@ res: do-cmd [{docker ps -aq -f name="^^} image-name {$"}]
 
 either any [error? res empty? res][
 	docker-run-cmd: rejoin [
-	    "docker run"
+	    "docker run -d"
 	    " -p " :port ":80"
-	    " -d "
 	    " -v ^"" to-local-file conf-dir   "/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro^""
 	    " -v ^"" to-local-file public-dir ":/usr/local/apache2/htdocs" public-mode {"}
 	    " -v ^"" to-local-file cgi-dir    ":/usr/local/apache2/cgi-bin" cgi-mode {"}
 	    " --restart unless-stopped"
-	    " --name " image-name SP container-name
-	    
+	    " --name " container-name SP image-name    
 	]
 ][
 	docker-run-cmd: rejoin [
-		"docker restart " image-name
+		"docker restart " container-name
 	]
 ]
 
