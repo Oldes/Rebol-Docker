@@ -80,7 +80,7 @@ print "^/Starting container..."
 call/console/wait docker-run-cmd
 
 print rejoin ["Open: http://localhost:" port "/"]
-print rejoin ["CGI:  http://localhost:" port "/cgi-bin/hello.r"]
+print rejoin ["CGI:  http://localhost:" port "/cgi-bin/hello.r3"]
 
 print "^/Useful commands:"
 print rejoin ["  docker logs -f " container-name]
