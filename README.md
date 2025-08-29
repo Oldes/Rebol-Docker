@@ -27,10 +27,11 @@ docker/run/console [
     image: "docker.io/oldes/ubi8-gcc-x64"
     flags: [--rm]
     volumes: [
-       ; %/c/Dev/Builder/ %/rebol/Builder/
-       ; %/c/Dev/Builder/tree/rebol/Rebol-bootstrap/ %/rebol/Rebol-bootstrap/
-       ; %/c/Dev/Builder/tree/rebol/Rebol-Docker/scripts/ %/rebol/scripts/
-       %out/ %/temp/out/
+        ;- Map local host out directory to /temp/out in the container
+        %out/ %/temp/out/
+        ;- Instead of pulling sources from Git, modified script could use local files
+        ;; %/c/Dev/Builder/ %/rebol/Builder/
+        ;; %/c/Dev/Builder/tree/rebol/Rebol-bootstrap/ %/rebol/Rebol-bootstrap/
     ]
     command: %%{
 #!/bin/sh
@@ -72,4 +73,36 @@ mv tree/rebol/Rebol/build/rebol3-bulk-linux-x64 /temp/out/rebol3-bulk-linux-x64_
 ls -la /temp/out/     # List final artifacts for CI logs
     }%%
 ]
-
+```
+If the above script runs successfully, three new Linux binaries will be created in the `out/` folder.
+<img width="1106" height="768" alt="image" src="https://github.com/user-attachments/assets/bc907994-a5e3-4790-b37e-ab6beaf6c4e3" />
+These binaries can then be used in a subsequent run, for example:
+```rebol
+docker/run/console [
+    name:  "test-rebol-ubi8"
+    image: "docker.io/oldes/ubi8-gcc-x64"
+    flags: [--rm] ;; remove container after use
+    volumes: [
+    	;; map Rebol/Bulk bimnary as /bin/rebol3
+        %out/rebol3-bulk-linux-x64_libc2_28 %/bin/rebol3
+    ]
+    ;; try to use it:
+    command: {rebol3 --do "probe system/build"}
+]
+```
+With result like:
+```rebol
+make object! [
+    os: 'rhel
+    os-version: "8.10"
+    abi: 'elf
+    sys: 'linux
+    arch: 'x64
+    libc: 'none
+    vendor: 'pc
+    target: 'x64-pc-linux-elf
+    compiler: 'gcc
+    date: 29-Aug-2025/16:21
+    git: #{75B9807E6F6E6E2AC3B2FB025EBE0F8A9A6D0FFA}
+]
+```
