@@ -2,20 +2,18 @@ Rebol [
     title:  "Docker utilities"
     name:    docker
     type:    module
-    version: 0.0.1
+    version: 0.0.2
     Date:    29-Aug-2025
     Author:  @Oldes
     File:    %docker.reb
-    exports: [
-        version
-        list-containers
-        run
-    ]
 ]
 
 system/options/log/docker: 2                        ;; enable logging for the 'docker'
 
-do-cmd: function [cmd /console /test][
+do-cmd: function [
+    ;; Internal helper to run command in a shell
+    cmd /console /test
+][
     if block? cmd [cmd: rejoin cmd]                 ;; accept commands as blocks; join into a single string
     log-info 'DOCKER cmd                            ;; log the command before execution
     parse cmd [any [to LF remove LF]]               ;; strip literal LF characters (flatten single-line when needed)
@@ -32,7 +30,9 @@ do-cmd: function [cmd /console /test][
     ]
 ]
 
-version: function[][                                 
+version: function[
+    "Return current Docker version or none"
+][                                 
     res: do-cmd "docker --version"                  ;; query docker for version info
     parse res ["Docker version " copy ver: to "," to end] ;; extract version substring up to first comma
     attempt [transcode/one ver]                     ;; try to convert to a typed value (e.g., decimal/tuple)
@@ -63,11 +63,15 @@ list-containers: function [
     containers                                      ;; return the filled map
 ]
 
-inspect: function[container][
+inspect: function [
+    "Return detailed container informations."
+    container
+][
     decode 'json do-cmd ajoin ["docker container inspect " container] ;; run inspect and decode JSON to values
 ]
 
 run: function [
+    "Run Docker image"
     spec [object! block! map!]          ;; run specification containing image, flags, ports, volumes, etc.
     /test "Don't evaluate the command"  ;; if set, build and show the command but do not execute
     /console                            ;; run attached to console (interactive TTY)
