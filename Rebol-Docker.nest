@@ -252,4 +252,12 @@ eggs: [
 		cmd %haiku/ {chmod +x ./build-rebol-haiku-x64.sh}
 		cmd %haiku/ {docker run --rm --platform linux/amd64 -v $PWD:/out/ docker.io/oldes/rebol-dev:haiku-x64  /out/build-rebol-haiku-x64.sh}
 	]
+
+
+	"Docker image: ubi8-gcc-x64" [
+		name: %ubi8-gcc-x64
+		cmd  %ubi8/amd64/ {docker build --platform linux/amd64   -t docker.io/oldes/ubi8-gcc-x64 -t docker.io/oldes/ubi8-gcc-amd64 -f Dockerfile-gcc .}
+		cmd {docker push oldes/ubi8-gcc-x64}
+	]
+
 ]

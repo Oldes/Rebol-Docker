@@ -1,0 +1,10 @@
+FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
+WORKDIR /build
+
+RUN microdnf update -y && microdnf install -y git wget gcc gcc-c++ make glibc-devel && microdnf clean all
+
+LABEL description="UBI8 micro with git and gcc"
+LABEL maintainer="oldes.huhuman@gmail.com"
+LABEL org.opencontainers.image.source="https://github.com/Oldes/Rebol-Docker"
+
+CMD "/bin/sh"
