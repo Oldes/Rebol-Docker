@@ -3,7 +3,7 @@
 [![Alpine](https://github.com/Oldes/Rebol-Docker/actions/workflows/alpine.yml/badge.svg)](https://github.com/Oldes/Rebol-Docker/actions/workflows/alpine.yml)
 [![Alpine-dev](https://github.com/Oldes/Rebol-Docker/actions/workflows/alpine-dev.yml/badge.svg)](https://github.com/Oldes/Rebol-Docker/actions/workflows/alpine-dev.yml)
 
-This repository includes various Rebol-related Docker files, along with a simple Rebol/Docker module. The module is designed to help automate common Docker tasks directly from Rebol, making it easier to integrate Docker workflows into your scripts.
+This repository includes various Rebol-related Docker files, along with a simple [Rebol/Docker module](docker.reb). The module is designed to help automate common Docker tasks directly from Rebol, making it easier to integrate Docker workflows into your scripts.
 
 ## Bootstrap Rebol for Red Hat 8 linux distro
 
