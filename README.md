@@ -25,7 +25,10 @@ make-dir %out/
 docker/run/console [
     name:  "rebol-bootstrap-ubi8"
     image: "docker.io/oldes/ubi8-gcc-x64"
-    flags: [--rm]
+    flags: [
+        --platform "linux/amd64"  ;; just in case when host isn't x64 
+        --rm                      ;; remove container after use
+    ]
     volumes: [
         ;- Map local host out directory to /temp/out in the container
         %out/ %/temp/out/
@@ -81,7 +84,10 @@ These binaries can then be used in a subsequent run, for example:
 docker/run/console [
     name:  "test-rebol-ubi8"
     image: "docker.io/oldes/ubi8-gcc-x64"
-    flags: [--rm] ;; remove container after use
+    flags: [
+        --platform "linux/amd64"  ;; just in case when host isn't x64 
+        --rm                      ;; remove container after use
+    ]
     volumes: [
     	;; map Rebol/Bulk bimnary as /bin/rebol3
         %out/rebol3-bulk-linux-x64_libc2_28 %/bin/rebol3
